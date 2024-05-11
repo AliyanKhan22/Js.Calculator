@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *
+        {
+            margin: 0;
+            background-color: rgb(99, 147, 230);
+        }
+        .container
+        {
+            font-size: 50px;
+            font-weight: bold;
+            /* border: 1px solid black; */
+            border-radius: 25px ;
+            box-shadow: 5px 5px 5px black;
+            text-align: center;
+            background-color: #15f515;
+        }
+        .main-screen
+        {
+         display: flex;
+         justify-content: center;
+         margin-top:3%;
+        }
+       .main-screen input
+       {
+        padding:7px 120px;
+        border: none; 
+        font-size:20px;
+        background-color:rgb(198, 247, 0);
+        color: black;
+        border: 1px solid black;
+        box-shadow: 5px 5px 5px black;
+        border-radius: 20px;
+       }
+       .num-but
+       {
+        /* border: 1px solid black;
+        width: 50; */
+        display: flex;
+        justify-content: center;
+       }
+       .bt 
+       {
+        padding: 20PX;
+        font-size: 25px;
+        color: black;
+        background-color: #15f515;
+        box-shadow: 5px 5px 5px black;
+        border-radius: 55px;
+        padding: 30px;
+       }
+       .main 
+       {
+        /* border: 1px solid black;
+        width: 50; */
+        display: flex;
+        justify-content: center;
+        margin-top:30px ;
+       }
+       .bt:hover
+       {
+        cursor: pointer;
+       background-color:rgb(198, 247, 0);
+       }
+       .btcl
+       {
+        background-color: rgb(198, 247, 0);
+        color: rgb(8, 5, 1);
+        box-shadow: 5px 5px 5px black;
+        border-radius: 55px;
+        padding: 30px;
+       }
+       .btcl:hover
+       {
+        background-color: #15f515;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">Calculator</div>
+    <div class="main-screen">
+        <input type="text" id="inp" disabled>
+    </div>
+    <br>
+    <div class="num-but"> 
+      <button class="bt" onclick="add(9)">9</button>
+      <button class="bt" onclick="add(8)">8</button>
+      <button class="bt" onclick="add(7)">7</button>
+      <button class="bt" onclick="add(6)">6</button>
+      <button class="bt" onclick="add(5)">5</button>
+      <button class="bt" onclick="add(4)">4</button>
+      <button class="bt" onclick="add(3)">3</button>
+      <button class="bt" onclick="add(2)">2</button>
+      <button class="bt" id="btn" onclick="add(1)">1</button>
+      <button class="bt" onclick="add(0)">0</button>
+      <button class="btcl" onclick="Clear()">Clear</button>
+    </div>
+    <div class="main">
+        <button class="bt" onclick="add('+')">+</button>
+        <button class="bt" onclick="add('-')">-</button>
+        <button class="bt" onclick="add('*')">x</button>
+        <button class="bt" onclick="add('/')">/</button>
+        <button class="bt equal" onclick="calculate()">=</button>
+    </div>
+    <script>
+        function add (number){
+        let inp = document.getElementById('inp');
+        inp.value +=number;
+        }
+        function Clear (){
+         let inputFeild = document.getElementById('inp');
+         inputFeild.value = " ";
+        }
+        function calculate () {
+        let inputResult = document.getElementById('inp');
+        inputResult.value =eval(inputResult.value);
+        }
+    </script>
+</body>
+</html>
